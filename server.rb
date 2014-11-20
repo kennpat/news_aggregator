@@ -16,7 +16,7 @@ def read_news(filename)
 			article_link: row['article_link'],
 			article_summary: row['article_summary']
 		}
-		#binding.pry
+		#  binding.pry
 	end
 	news_arr
 end
@@ -28,22 +28,30 @@ def save_news(filename, article_title, article_link, article_summary)
 	end
 end
 
-#gets
+# gets
 
+# for the base address
 get '/' do
+	@news = read_news('news.csv')
+	# binding.pry
+	erb :index
+end
+
+# for the /article address requirement
+get '/article' do
 	@news = read_news('news.csv')
 	#binding.pry
 	erb :index
 end
 
-get '/new' do
+get '/article/new' do
 	erb :new
 end
 
 #posts
 
-post '/new' do
-	#hash structure - refer to above function to read the csv file
+post '/article/new' do
+	# hash structure - refer to above function to read the csv file
 
 	@title = params[:article][:name]
 	@link = params[:article][:link]

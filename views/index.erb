@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Sl@ck3r N3ws</title></head>
+
+	<body>
+		
+		<h3>N3ws for Sl@ck3rs</h3>
+		<a href ='/new'><h7>Add an article</h7></a>
+		<div>
+			<ul>
+				<% @news.each do |article| %>
+					<li>
+						<h4><%= "#{article[:article_title]} - posted on #{article[:submission_date]}" %></h4>
+						<p><%= article[:article_link] %></p>
+						<p><%= article[:article_summary] %></p>
+					
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</body>
+
+</html>

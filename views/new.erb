@@ -4,20 +4,34 @@
 
 <body>
 	<h3>Submit an article!</h3>
+
+	<% if @error_messages %>
+		<ul class="error">
+			<% @error_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
 	<div>
 		<form method="post" action="/new">
 			<div>
 				<label for="article_title">Article Title:</label>
-
-
-
-
-
-
-
+				<input type="text" id="article_title" placeholder="title of the article" name="article[name]" 	value=<%= @title %>>
+			</div>
+			<div>
+				<label for="article_link">Article Link:</label>
+				<input type="text" id="article_link" placeholder="link goes here" name="article[link]" value=<%=  @link %>>
+			</div>
+			<div>
+				<label for="article_summary">Article Summary:</label>
+				<input type="text" id="article_summary" placeholder="Add the summary here" name="article[summary]" value=<%=  @summary %>>
+			</div>
+			<div>
+				<input type="submit" value="Mmmm News">
+			</div>
+		</form>
 	</div>
-
-
 
 </body>
 </html>

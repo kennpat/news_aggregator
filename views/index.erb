@@ -11,7 +11,7 @@
 				<% @news.each do |article| %>
 					<li>
 						<h4><%= "#{article[:article_title]} - posted on #{article[:submission_date]}" %></h4>
-						<p><%= article[:article_link] %></p>
+						<a href ="<% article[:article_link] %>"><p><%= article[:article_link] %></p></a>
 						<p><%= article[:article_summary] %></p>
 					
 					</li>
